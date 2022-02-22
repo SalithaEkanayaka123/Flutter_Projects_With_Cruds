@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'dart:developer';
 
 class Database {
   FirebaseFirestore firestore;
+  
+  
   initiliase() {
     firestore = FirebaseFirestore.instance;
   }
@@ -30,9 +33,12 @@ class Database {
     List docs = [];
     try {
       querySnapshot = await firestore.collection('MyTodos').get();
+      print('sss');
+      print(querySnapshot.docs);
       if (querySnapshot.docs.isNotEmpty) {
         for (var doc in querySnapshot.docs.toList()) {
           Map a = {"id": doc.id, "title": doc['title']};
+
           docs.add(a);
         }
         return docs;
