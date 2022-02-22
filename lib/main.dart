@@ -115,6 +115,7 @@ class _MyAppState extends State<MyApp> {
                       icon: Icon(
                         Icons.delete,
                         color: Colors.red,
+                        
                       ),
                       onPressed: () {
                         setState(() {
